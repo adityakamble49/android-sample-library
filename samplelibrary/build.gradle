@@ -1,0 +1,73 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'samplelibrary'
+
+    publishedGroupId = 'com.adityakamble49.sample'
+    libraryName = 'sample-library'
+    artifact = 'samplelibrary'
+
+    libraryDescription = 'Sample Android Library'
+
+    siteUrl = 'https://github.com/adityakamble49/android-sample-library'
+    gitUrl = 'https://github.com/adityakamble49/android-sample-library.git'
+    githubRepository = 'adityakamble49/android-sample-library'
+
+    libraryVersion = '0.1'
+
+    developerId = 'adityakamble49'
+    developerName = 'Aditya Kamble'
+    developerEmail = 'adityakamble49@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.0.1"
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 26
+        versionCode 1
+        versionName "0.1"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    // Android Support
+    implementation "com.android.support:appcompat-v7:${versions.android_support}"
+
+    // Kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+
+    // Testing
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:3.0.1', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+
+}
+repositories {
+    mavenCentral()
+}
+
+apply from: 'https://raw.githubusercontent.com/adityakamble49/adityakamble49.com/master/android-lib/install.gradle'
+apply from: 'https://raw.githubusercontent.com/adityakamble49/adityakamble49.com/master/android-lib/bintray.gradle'
