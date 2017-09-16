@@ -49,6 +49,10 @@ android {
 
 }
 
+tasks.withType(Javadoc) {
+    enabled = false
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
