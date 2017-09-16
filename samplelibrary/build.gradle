@@ -1,10 +1,34 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'samplelibrary'
+
+    publishedGroupId = 'com.adityakamble49.sample'
+    libraryName = 'sample-library'
+    artifact = 'samplelibrary'
+
+    libraryDescription = 'Sample Android Library'
+
+    siteUrl = 'https://github.com/adityakamble49/android-sample-library'
+    gitUrl = 'https://github.com/adityakamble49/android-sample-library.git'
+    githubRepository = 'adityakamble49/android-sample-library'
+
+    libraryVersion = '0.1'
+
+    developerId = 'adityakamble49'
+    developerName = 'Aditya Kamble'
+    developerEmail = 'adityakamble49@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
 android {
     compileSdkVersion 26
     buildToolsVersion "26.0.1"
-
 
     defaultConfig {
         minSdkVersion 15
@@ -44,3 +68,6 @@ dependencies {
 repositories {
     mavenCentral()
 }
+
+apply from: 'https://raw.githubusercontent.com/adityakamble49/adityakamble49.com/master/android-lib/install.gradle'
+apply from: 'https://raw.githubusercontent.com/adityakamble49/adityakamble49.com/master/android-lib/bintray.gradle'
