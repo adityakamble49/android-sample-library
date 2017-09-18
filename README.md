@@ -1,16 +1,6 @@
 # Android Library Sample
 
 ## Usage
-Include repository in root level **build.gradle**
-```
-allprojects {
-    repositories {
-        google()
-        jcenter()
-        maven{url 'https://dl.bintray.com/adityakamble49/maven'}
-    }
-}
-```
 Include dependency in app level **build.gradle**
 ```
 compile 'com.adityakamble49.sample:samplelibrary:0.2'
